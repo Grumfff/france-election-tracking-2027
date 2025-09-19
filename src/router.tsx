@@ -1,13 +1,13 @@
 import {
-  createRouter,
-  createRoute,
   createRootRoute,
+  createRoute,
+  createRouter,
 } from '@tanstack/react-router'
-import { App } from '../components/App'
-import { Home } from '../components/Home'
-import { About } from '../components/About'
-import { Info } from '../components/Info'
-import { InfoDetails } from '../components/InfoDetails'
+import { About } from './components/About'
+import { App } from './components/App'
+import { Home } from './components/Home'
+import { Info } from './components/Info'
+import { InfoDetails } from './components/InfoDetails'
 
 const rootRoute = createRootRoute({
   component: App,

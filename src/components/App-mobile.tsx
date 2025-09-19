@@ -11,12 +11,19 @@ import {
   Paper
 } from '@mui/material'
 import { Home as HomeIcon, Info as InfoIcon, Person as PersonIcon } from '@mui/icons-material'
+import logoSvg from '../assets/logo.svg'
 
 export function AppMobile() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       <AppBar position="static" sx={{ zIndex: 1 }}>
         <Toolbar>
+          <Box
+            component="img"
+            src={logoSvg}
+            alt="Logo"
+            sx={{ height: 32, width: 32, mr: 2 }}
+          />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Mon App
           </Typography>

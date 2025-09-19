@@ -1,8 +1,8 @@
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
+import { RouterProvider } from '@tanstack/react-router'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { RouterProvider } from '@tanstack/react-router'
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material'
-import { router } from './routes/router.tsx'
+import { router } from './router.tsx'
 
 const theme = createTheme({
   palette: {
