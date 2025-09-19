@@ -7,6 +7,10 @@ import { router } from './router.tsx'
 const theme = createTheme({
   palette: {
     mode: 'light',
+    primary: {
+      // main: '#2400ff',
+      main: '#4327f8ff',
+    },
   },
 })
 

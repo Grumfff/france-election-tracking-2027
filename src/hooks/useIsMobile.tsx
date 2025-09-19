@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false)
@@ -8,7 +8,7 @@ export function useIsMobile() {
       const userAgent = navigator.userAgent
       const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
       const isMobileDevice = mobileRegex.test(userAgent)
-      const isSmallScreen = window.innerWidth <= 768
+      const isSmallScreen = window.innerWidth <= 1000
 
       setIsMobile(isMobileDevice || isSmallScreen)
     }

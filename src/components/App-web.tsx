@@ -11,6 +11,7 @@ import {
 import logoSvg from '../assets/logo.svg'
 
 export function AppWeb() {
+  const buttonStyle = { color: 'primary' as const, variant: 'contained' as const, sx: { mr: 2 } };
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       <AppBar position="static" sx={{ bgcolor: 'white', color: 'black' }}>
@@ -24,14 +25,14 @@ export function AppWeb() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 2 }}>
             JM Tracker - 2027
           </Typography>
-          <Button color="inherit" component={Link} to="/">
-            Home
+          <Button component={Link} to="/" {...buttonStyle}>
+            Scrutin Uninominal
           </Button>
-          <Button color="inherit" component={Link} to="/about">
-            About
+          <Button component={Link} to="/about" {...buttonStyle}>
+            Vote par Approbation
           </Button>
-          <Button color="inherit" component={Link} to="/info">
-            Info
+          <Button component={Link} to="/info" {...buttonStyle}>
+            Jugement Majoritaire
           </Button>
         </Toolbar>
       </AppBar>
