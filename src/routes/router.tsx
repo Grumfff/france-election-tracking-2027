@@ -12,10 +12,12 @@ import {
   Typography,
   Button,
   Box,
-  Container,
-  Card,
-  CardContent
+  Container
 } from '@mui/material'
+import { Home } from '../components/Home'
+import { About } from '../components/About'
+import { Info } from '../components/Info'
+import { InfoDetails } from '../components/InfoDetails'
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -51,85 +53,25 @@ const rootRoute = createRootRoute({
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
-  component: function Index() {
-    return (
-      <Card>
-        <CardContent>
-          <Typography variant="h4" gutterBottom>
-            Welcome Home!
-          </Typography>
-          <Typography variant="body1">
-            This is your MUI full-page application homepage.
-          </Typography>
-        </CardContent>
-      </Card>
-    )
-  },
+  component: Home,
 })
 
 const aboutRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/about',
-  component: function About() {
-    return (
-      <Card>
-        <CardContent>
-          <Typography variant="h4" gutterBottom>
-            About
-          </Typography>
-          <Typography variant="body1">
-            Hello from the About page! This is built with Material-UI.
-          </Typography>
-        </CardContent>
-      </Card>
-    )
-  },
+  component: About,
 })
 
 const infoRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/info',
-  component: function Info() {
-    return (
-      <Box>
-        <Card sx={{ mb: 2 }}>
-          <CardContent>
-            <Typography variant="h4" gutterBottom>
-              Info Page
-            </Typography>
-            <Button
-              variant="contained"
-              component={Link}
-              to="/info/details"
-              sx={{ mt: 1 }}
-            >
-              View Details
-            </Button>
-          </CardContent>
-        </Card>
-        <Outlet />
-      </Box>
-    )
-  },
+  component: Info,
 })
 
 const infoDetailsRoute = createRoute({
   getParentRoute: () => infoRoute,
   path: '/details',
-  component: function InfoDetails() {
-    return (
-      <Card>
-        <CardContent sx={{ bgcolor: 'grey.100' }}>
-          <Typography variant="h5" gutterBottom>
-            Details Section
-          </Typography>
-          <Typography variant="body1">
-            This is the details section inside Info page!
-          </Typography>
-        </CardContent>
-      </Card>
-    )
-  },
+  component: InfoDetails,
 })
 
 const routeTree = rootRoute.addChildren([
