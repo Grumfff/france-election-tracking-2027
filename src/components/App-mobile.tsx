@@ -10,8 +10,7 @@ import {
   BottomNavigationAction,
   Paper
 } from '@mui/material'
-import { Home as HomeIcon, Info as InfoIcon, Person as PersonIcon } from '@mui/icons-material'
-import logoSvg from '../assets/logo.svg'
+import logoMiniSvg from '../assets/logo-mini.svg'
 import JugMaj from "../assets/jugement-majoritaire.svg?react";
 import VoteApprobation from "../assets/vote-approbation.svg?react";
 import ScrutinUninominal from "../assets/scrutin-uninominal.svg?react";
@@ -22,13 +21,27 @@ export function AppMobile() {
       <AppBar position="static" sx={{ zIndex: 1 }}>
         <Toolbar>
           <Box
-            component="img"
-            src={logoSvg}
-            alt="Logo"
-            sx={{ height: 32, width: 32, mr: 2 }}
-          />
+            sx={{
+              height: 32,
+              width: 32,
+              mr: 2,
+              borderRadius: '50%',
+              backgroundColor: 'white',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              p: 0.5
+            }}
+          >
+            <Box
+              component="img"
+              src={logoMiniSvg}
+              alt="Logo"
+              sx={{ height: 20, width: 20 }}
+            />
+          </Box>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Mon App
+            JM Tracker - 2027
           </Typography>
         </Toolbar>
       </AppBar>
