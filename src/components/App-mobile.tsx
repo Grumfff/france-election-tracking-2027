@@ -12,6 +12,9 @@ import {
 } from '@mui/material'
 import { Home as HomeIcon, Info as InfoIcon, Person as PersonIcon } from '@mui/icons-material'
 import logoSvg from '../assets/logo.svg'
+import JugMaj from "../assets/jugement-majoritaire.svg?react";
+import VoteApprobation from "../assets/vote-approbation.svg?react";
+import ScrutinUninominal from "../assets/scrutin-uninominal.svg?react";
 
 export function AppMobile() {
   return (
@@ -36,23 +39,23 @@ export function AppMobile() {
         </Container>
       </Box>
 
-      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-        <BottomNavigation showLabels>
+      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, bgcolor: 'primary.main' }} elevation={3}>
+        <BottomNavigation showLabels sx={{ bgcolor: 'transparent', '& .MuiBottomNavigationAction-root': { color: 'white' }, '& .Mui-selected': { color: 'white !important' } }}>
           <BottomNavigationAction
-            label="Home"
-            icon={<HomeIcon />}
+            label="Scrutin Uninominal"
+            icon={<ScrutinUninominal />}
             component={Link}
             to="/"
           />
           <BottomNavigationAction
-            label="About"
-            icon={<PersonIcon />}
+            label="Vote par Approbation"
+            icon={<VoteApprobation />}
             component={Link}
             to="/about"
           />
           <BottomNavigationAction
-            label="Info"
-            icon={<InfoIcon />}
+            label="Jugement Majoritaire"
+            icon={<JugMaj />}
             component={Link}
             to="/info"
           />
