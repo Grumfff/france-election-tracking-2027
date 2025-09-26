@@ -1,6 +1,6 @@
 import { useIsMobile } from '../hooks/useIsMobile'
-import { AppWeb } from './App-web'
-import { AppMobile } from './App-mobile'
+import { AppWeb } from './web/App-web'
+import { AppMobile } from './mobile/App-mobile'
 
 export function App() {
   const isMobile = useIsMobile()

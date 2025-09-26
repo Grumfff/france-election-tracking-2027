@@ -5,15 +5,14 @@ import {
   Toolbar,
   Typography,
   Box,
-  Container,
   BottomNavigation,
   BottomNavigationAction,
   Paper
 } from '@mui/material'
-import logoMiniSvg from '../assets/logo-mini.svg'
-import JugMaj from "../assets/jugement-majoritaire.svg?react";
-import VoteApprobation from "../assets/vote-approbation.svg?react";
-import ScrutinUninominal from "../assets/scrutin-uninominal.svg?react";
+import logoMiniSvg from '../../assets/logo-mini.svg'
+import JugMaj from "../../assets/jugement-majoritaire.svg?react";
+import VoteApprobation from "../../assets/vote-approbation.svg?react";
+import ScrutinUninominal from "../../assets/scrutin-uninominal.svg?react";
 
 export function AppMobile() {
   return (
@@ -46,10 +45,8 @@ export function AppMobile() {
         </Toolbar>
       </AppBar>
 
-      <Box sx={{ flex: 1, overflow: 'auto', pb: 7 }}>
-        <Container maxWidth="sm" sx={{ py: 2, px: 2 }}>
+      <Box sx={{ flex: 1, display: 'flex'}}>
           <Outlet />
-        </Container>
       </Box>
 
       <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, bgcolor: 'primary.main' }} elevation={3}>

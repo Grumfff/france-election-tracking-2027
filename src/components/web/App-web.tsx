@@ -6,9 +6,8 @@ import {
   Typography,
   Button,
   Box,
-  Container
 } from '@mui/material'
-import logoSvg from '../assets/logo.svg'
+import logoSvg from '../../assets/logo.svg'
 
 export function AppWeb() {
   const buttonStyle = { color: 'primary' as const, variant: 'contained' as const, sx: { mr: 2 } };
@@ -37,10 +36,8 @@ export function AppWeb() {
         </Toolbar>
       </AppBar>
 
-      <Box sx={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
-        <Container maxWidth="lg" sx={{ py: 3, flex: 1 }}>
+      <Box sx={{ flex: 1, display: 'flex' }}>
           <Outlet />
-        </Container>
       </Box>
 
       <TanStackRouterDevtools />

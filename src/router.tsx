@@ -3,7 +3,6 @@ import {
   createRoute,
   createRouter,
 } from '@tanstack/react-router'
-import { About } from './components/About'
 import { App } from './components/App'
 import { Home } from './components/Home'
 import { Info } from './components/Info'
@@ -17,12 +16,6 @@ const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
   component: Home,
-})
-
-const aboutRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/about',
-  component: About,
 })
 
 const infoRoute = createRoute({
@@ -39,7 +32,6 @@ const infoDetailsRoute = createRoute({
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
-  aboutRoute,
   infoRoute.addChildren([infoDetailsRoute])
 ])
 
