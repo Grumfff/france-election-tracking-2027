@@ -1,7 +1,7 @@
 import json
 
 # Lire le fichier JSON
-with open('/Users/borisvilboux/free/jm-tracker-react/src/data/ranking_plot-all.json', 'r') as f:
+with open('/Users/borisvilboux/free/jm-tracker-react/src/data/ranking-plot-all.json', 'r') as f:
     plotly_data = json.load(f)
 
 # Analyser la structure
