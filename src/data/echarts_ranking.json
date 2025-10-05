@@ -8,10 +8,7 @@
     }
   },
   "tooltip": {
-    "trigger": "axis",
-    "axisPointer": {
-      "type": "cross"
-    }
+    "trigger": "item"
   },
   "legend": {
     "data": [
@@ -39,7 +36,7 @@
   "yAxis": {
     "type": "value",
     "inverse": true,
-    "min": 0,
+    "min": 0.5,
     "max": 27,
     "interval": 1,
     "axisLabel": {

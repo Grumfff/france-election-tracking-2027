@@ -133,7 +133,9 @@ def create_echarts_config(candidates, background_areas, layout):
             "left": "center",
             "textStyle": {"fontWeight": "bold"},
         },
-        "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
+        "tooltip": {
+            "trigger": "item"
+        },
         "legend": {
             "data": [area["name"] for area in background_areas if area["showlegend"]],
             "bottom": 0,
@@ -154,7 +156,7 @@ def create_echarts_config(candidates, background_areas, layout):
         "yAxis": {
             "type": "value",
             "inverse": True,
-            "min": 0,
+            "min": 0.5,
             "max": 27,
             "interval": 1,
             "axisLabel": {"show": False},

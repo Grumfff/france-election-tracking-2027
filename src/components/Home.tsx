@@ -17,7 +17,18 @@ export function Home() {
     theme.palette.error.main,        // très insatisfait - rouge
   ]
 
-  const rankingChartOption: EChartsOption = echartsRanking as EChartsOption
+  const rankingChartOption: EChartsOption = {
+    ...(echartsRanking as EChartsOption),
+    tooltip: {
+      trigger: 'item',
+      formatter: (params: any) => {
+        const date = new Date(params.data[0]).toLocaleDateString('fr-FR')
+        const rank = Math.round(params.data[1])
+        const rankText = rank === 1 ? '1er' : `${rank}ème`
+        return `${params.marker}${params.seriesName}<br/>${date} : ${rankText}`
+      }
+    }
+  }
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, p: 2, width: '100%' }}>
