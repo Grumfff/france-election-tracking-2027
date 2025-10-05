@@ -94,6 +94,16 @@ def create_echarts_config(candidates, background_areas, layout):
 
     # Ajouter les séries de candidats
     for candidate_name, candidate_data in candidates.items():
+        # Calculer le rang à la dernière position
+        last_y = candidate_data['y'][-1]
+        rank = int(round(last_y))  # Le rang correspond directement à la valeur y arrondie
+
+        # Formater le rang (1er, 2e, 3e, etc.)
+        if rank == 1:
+            rank_text = "1er"
+        else:
+            rank_text = f"{rank}e"
+
         series.append({
             'name': candidate_name,
             'type': 'line',
@@ -111,7 +121,7 @@ def create_echarts_config(candidates, background_areas, layout):
             'smooth': False,
             'endLabel': {
                 'show': True,
-                'formatter': '{a}',
+                'formatter': f'{rank_text} {candidate_name}',
                 'distance': 10,
                 'color': candidate_data['color']
             }

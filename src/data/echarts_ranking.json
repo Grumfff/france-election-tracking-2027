@@ -437,7 +437,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "6e Edouard Philippe",
         "distance": 10,
         "color": "#0095eb"
       }
@@ -504,7 +504,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "15e Jordan Bardella",
         "distance": 10,
         "color": "#04006e"
       }
@@ -571,7 +571,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "18e Marine Le Pen",
         "distance": 10,
         "color": "#04006e"
       }
@@ -638,7 +638,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "5e Raphaël Glucksmann",
         "distance": 10,
         "color": "#b339a4"
       }
@@ -701,7 +701,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "22e François Hollande",
         "distance": 10,
         "color": "#b339a4"
       }
@@ -768,7 +768,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "7e François Ruffin",
         "distance": 10,
         "color": "#de001e"
       }
@@ -835,7 +835,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "10e Fabien Roussel",
         "distance": 10,
         "color": "#940014"
       }
@@ -902,7 +902,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "3e Gérald Darmanin",
         "distance": 10,
         "color": "#0095eb"
       }
@@ -969,7 +969,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "20e Bruno Le Maire",
         "distance": 10,
         "color": "#0095eb"
       }
@@ -1036,7 +1036,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "23e François Bayrou",
         "distance": 10,
         "color": "#f28f2d"
       }
@@ -1103,7 +1103,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "13e Xavier Bertrand",
         "distance": 10,
         "color": "#0242e3"
       }
@@ -1170,7 +1170,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "8e Olivier Faure",
         "distance": 10,
         "color": "#b339a4"
       }
@@ -1237,7 +1237,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "4e Bernard Cazeneuve",
         "distance": 10,
         "color": "#b339a4"
       }
@@ -1304,7 +1304,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "17e Marine Tondelier",
         "distance": 10,
         "color": "#0bb029"
       }
@@ -1371,7 +1371,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "21e Laurent Wauquiez",
         "distance": 10,
         "color": "#0242e3"
       }
@@ -1438,7 +1438,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "12e Yaël Braun-Pivet",
         "distance": 10,
         "color": "#0095eb"
       }
@@ -1505,7 +1505,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "26e Jean-Luc Mélenchon",
         "distance": 10,
         "color": "#de001e"
       }
@@ -1572,7 +1572,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "25e Eric Zemmour",
         "distance": 10,
         "color": "#010038"
       }
@@ -1623,7 +1623,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "11e Michel Barnier",
         "distance": 10,
         "color": "black"
       }
@@ -1690,7 +1690,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "9e Gabriel Attal",
         "distance": 10,
         "color": "#0095eb"
       }
@@ -1753,7 +1753,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "1er Bruno Retailleau",
         "distance": 10,
         "color": "#0242e3"
       }
@@ -1820,7 +1820,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "2e David Lisnard",
         "distance": 10,
         "color": "#0242e3"
       }
@@ -1875,7 +1875,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "16e Jean Castex",
         "distance": 10,
         "color": "black"
       }
@@ -1914,7 +1914,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "24e Marion Maréchal",
         "distance": 10,
         "color": "#010038"
       }
@@ -1953,7 +1953,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "19e Eric Ciotti",
         "distance": 10,
         "color": "#0242e3"
       }
@@ -1984,7 +1984,7 @@
       "smooth": false,
       "endLabel": {
         "show": true,
-        "formatter": "{a}",
+        "formatter": "14e Dominique de Villepin",
         "distance": 10,
         "color": "#0242e3"
       }
