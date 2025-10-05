@@ -434,7 +434,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0095eb"
+      }
     },
     {
       "name": "Jordan Bardella",
@@ -495,7 +501,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#04006e"
+      }
     },
     {
       "name": "Marine Le Pen",
@@ -556,7 +568,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#04006e"
+      }
     },
     {
       "name": "Raphaël Glucksmann",
@@ -617,7 +635,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#b339a4"
+      }
     },
     {
       "name": "François Hollande",
@@ -674,7 +698,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#b339a4"
+      }
     },
     {
       "name": "François Ruffin",
@@ -735,7 +765,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#de001e"
+      }
     },
     {
       "name": "Fabien Roussel",
@@ -796,7 +832,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#940014"
+      }
     },
     {
       "name": "Gérald Darmanin",
@@ -857,7 +899,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0095eb"
+      }
     },
     {
       "name": "Bruno Le Maire",
@@ -918,7 +966,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0095eb"
+      }
     },
     {
       "name": "François Bayrou",
@@ -979,7 +1033,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#f28f2d"
+      }
     },
     {
       "name": "Xavier Bertrand",
@@ -1040,7 +1100,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0242e3"
+      }
     },
     {
       "name": "Olivier Faure",
@@ -1101,7 +1167,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#b339a4"
+      }
     },
     {
       "name": "Bernard Cazeneuve",
@@ -1162,7 +1234,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#b339a4"
+      }
     },
     {
       "name": "Marine Tondelier",
@@ -1223,7 +1301,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0bb029"
+      }
     },
     {
       "name": "Laurent Wauquiez",
@@ -1284,7 +1368,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0242e3"
+      }
     },
     {
       "name": "Yaël Braun-Pivet",
@@ -1345,7 +1435,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0095eb"
+      }
     },
     {
       "name": "Jean-Luc Mélenchon",
@@ -1406,7 +1502,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#de001e"
+      }
     },
     {
       "name": "Eric Zemmour",
@@ -1467,7 +1569,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#010038"
+      }
     },
     {
       "name": "Michel Barnier",
@@ -1512,7 +1620,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "black"
+      }
     },
     {
       "name": "Gabriel Attal",
@@ -1573,7 +1687,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0095eb"
+      }
     },
     {
       "name": "Bruno Retailleau",
@@ -1630,7 +1750,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0242e3"
+      }
     },
     {
       "name": "David Lisnard",
@@ -1691,7 +1817,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0242e3"
+      }
     },
     {
       "name": "Jean Castex",
@@ -1740,7 +1872,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "black"
+      }
     },
     {
       "name": "Marion Maréchal",
@@ -1773,7 +1911,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#010038"
+      }
     },
     {
       "name": "Eric Ciotti",
@@ -1806,7 +1950,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0242e3"
+      }
     },
     {
       "name": "Dominique de Villepin",
@@ -1831,7 +1981,13 @@
       "showSymbol": true,
       "symbol": "circle",
       "symbolSize": 6,
-      "smooth": false
+      "smooth": false,
+      "endLabel": {
+        "show": true,
+        "formatter": "{a}",
+        "distance": 10,
+        "color": "#0242e3"
+      }
     }
   ]
 }

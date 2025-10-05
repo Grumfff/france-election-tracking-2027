@@ -108,7 +108,13 @@ def create_echarts_config(candidates, background_areas, layout):
             'showSymbol': True,
             'symbol': 'circle',
             'symbolSize': 6,
-            'smooth': False
+            'smooth': False,
+            'endLabel': {
+                'show': True,
+                'formatter': '{a}',
+                'distance': 10,
+                'color': candidate_data['color']
+            }
         })
 
     # Configuration ECharts complète

@@ -1,10 +1,10 @@
-import Chart from './Chart'
-import type { EChartsOption } from 'echarts'
-import { useTheme } from '@mui/material/styles'
 import { Box } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
+import type { EChartsOption } from 'echarts'
 import Plot from 'react-plotly.js'
-import rankingPlotData from '../data/ranking-plot-all.json'
 import echartsRanking from '../data/echarts_ranking.json'
+import rankingPlotData from '../data/ranking-plot-all.json'
+import Chart from './Chart'
 
 export function Home() {
   const theme = useTheme()
@@ -21,7 +21,7 @@ export function Home() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, p: 2, width: '100%' }}>
-      <Box sx={{ height: '800px' }}>
+      <Box sx={{ height: '800px', width: '100%' }}>
         <Chart option={rankingChartOption} />
       </Box>
       <Box sx={{ height: '800px' }}>
