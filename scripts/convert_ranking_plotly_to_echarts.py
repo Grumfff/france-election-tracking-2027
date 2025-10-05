@@ -72,12 +72,16 @@ def create_echarts_config(candidates, background_areas, layout):
     # Ajouter les zones de fond en premier (pour qu'elles soient derrière)
     for area in background_areas:
         if area['showlegend']:
+            color = convert_rgba_to_echarts(area['fillcolor'])
             series.append({
                 'name': area['name'],
                 'type': 'line',
                 'data': [[x, y] for x, y in zip(area['x'], area['y'])],
                 'areaStyle': {
-                    'color': convert_rgba_to_echarts(area['fillcolor'])
+                    'color': color
+                },
+                'itemStyle': {
+                    'color': color
                 },
                 'lineStyle': {
                     'width': 0,
@@ -85,7 +89,7 @@ def create_echarts_config(candidates, background_areas, layout):
                 },
                 'symbol': 'none',
                 'smooth': False,
-                'stack': 'background'
+                'stack': area['name'].lower().replace(' ', '-')
             })
 
     # Ajouter les séries de candidats

@@ -150,13 +150,16 @@
       "areaStyle": {
         "color": "rgba(194,177,19,0.5)"
       },
+      "itemStyle": {
+        "color": "rgba(194,177,19,0.5)"
+      },
       "lineStyle": {
         "width": 0,
         "color": "transparent"
       },
       "symbol": "none",
       "smooth": false,
-      "stack": "background"
+      "stack": "ni-satisfait-ni-insatisfait"
     },
     {
       "name": "plutôt insatisfait",
@@ -254,13 +257,16 @@
       "areaStyle": {
         "color": "rgba(194,124,19,0.5)"
       },
+      "itemStyle": {
+        "color": "rgba(194,124,19,0.5)"
+      },
       "lineStyle": {
         "width": 0,
         "color": "transparent"
       },
       "symbol": "none",
       "smooth": false,
-      "stack": "background"
+      "stack": "plutôt-insatisfait"
     },
     {
       "name": "très insatisfait",
@@ -358,13 +364,16 @@
       "areaStyle": {
         "color": "rgba(194,61,19,0.5)"
       },
+      "itemStyle": {
+        "color": "rgba(194,61,19,0.5)"
+      },
       "lineStyle": {
         "width": 0,
         "color": "transparent"
       },
       "symbol": "none",
       "smooth": false,
-      "stack": "background"
+      "stack": "très-insatisfait"
     },
     {
       "name": "Edouard Philippe",
