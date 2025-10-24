@@ -5,7 +5,7 @@ import {
   redirect,
 } from '@tanstack/react-router'
 import { App } from './components/App'
-import { Home } from './components/Home'
+import { Majoritaire } from './components/Majoritaire'
 import { Uninominal } from './components/Uninominal'
 import { InfoDetails } from './components/InfoDetails'
 
@@ -17,6 +17,7 @@ const rootIndexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
   beforeLoad: () => {
+    // eslint-disable-next-line @typescript-eslint/only-throw-error
     throw redirect({ to: '/majoritaire' })
   },
 })
@@ -24,7 +25,7 @@ const rootIndexRoute = createRoute({
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/majoritaire',
-  component: Home,
+  component: Majoritaire,
 })
 
 const infoRoute = createRoute({

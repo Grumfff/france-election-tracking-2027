@@ -7,12 +7,14 @@ interface ChartProps {
   style?: React.CSSProperties;
   className?: string;
   theme?: string;
-  onEvents?: Record<string, (params: any) => void>;
+  onEvents?: Record<string, (params: unknown) => void>;
 }
+
+const DEFAULT_STYLE: React.CSSProperties = { height: '100%', width: '100%' };
 
 const Chart: React.FC<ChartProps> = ({
   option,
-  style = { height: '100%', width: '100%' },
+  style = DEFAULT_STYLE,
   className,
   theme,
   onEvents

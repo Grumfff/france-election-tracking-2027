@@ -9,11 +9,15 @@ const rankingChartOption: EChartsOption = {
     ...(echartsRanking as EChartsOption),
     tooltip: {
       trigger: 'item',
-      formatter: (params: any) => {
-        const date = new Date(params.data[0]).toLocaleDateString('fr-FR')
-        const rank = Math.round(params.data[1])
+      formatter: (params) => {
+        if (Array.isArray(params)) return '';
+        const data = params.data as [string | number | Date, number]
+        const date = new Date(data[0]).toLocaleDateString('fr-FR')
+        const rank = Math.round(data[1])
         const rankText = rank === 1 ? '1er' : `${rank}ème`
-        return `${params.marker}${params.seriesName}<br/>${date} : ${rankText}`
+        const marker = typeof params.marker === 'string' ? params.marker : (params.marker?.content ?? '')
+        const seriesName = String(params.seriesName ?? '')
+        return `${marker}${seriesName}<br/>${date} : ${rankText}`
       }
     }
   }
