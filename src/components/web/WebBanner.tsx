@@ -8,9 +8,9 @@ export const WebBanner : FC = () => {
 
   const getTabValue = (pathname: string) => {
     switch (pathname) {
-      case '/': return 0;
-      case '/about': return 1;
-      case '/info': return 2;
+      case '/majoritaire': return 0;
+      case '/approbation': return 1;
+      case '/uninominal': return 2;
       default: return 0;
     }
   };
@@ -37,19 +37,19 @@ export const WebBanner : FC = () => {
         <Tab
           label="Jugement Majoritaire"
           component={Link}
-          to="/"
+          to="/majoritaire"
           sx={{ textTransform: 'none' }}
         />
         <Tab
           label="Vote par Approbation"
           component={Link}
-          to="/about"
+          to="/approbation"
           sx={{ textTransform: 'none' }}
         />
         <Tab
           label="Scrutin Uninominal"
           component={Link}
-          to="/info"
+          to="/uninominal"
           sx={{ textTransform: 'none' }}
         />
       </Tabs>

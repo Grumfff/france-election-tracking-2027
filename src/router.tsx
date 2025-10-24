@@ -2,26 +2,35 @@ import {
   createRootRoute,
   createRoute,
   createRouter,
+  redirect,
 } from '@tanstack/react-router'
 import { App } from './components/App'
 import { Home } from './components/Home'
-import { Info } from './components/Info'
+import { Uninominal } from './components/Uninominal'
 import { InfoDetails } from './components/InfoDetails'
 
 const rootRoute = createRootRoute({
   component: App,
 })
 
-const indexRoute = createRoute({
+const rootIndexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
+  beforeLoad: () => {
+    throw redirect({ to: '/majoritaire' })
+  },
+})
+
+const indexRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/majoritaire',
   component: Home,
 })
 
 const infoRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/info',
-  component: Info,
+  path: '/uninominal',
+  component: Uninominal,
 })
 
 const infoDetailsRoute = createRoute({
@@ -31,6 +40,7 @@ const infoDetailsRoute = createRoute({
 })
 
 const routeTree = rootRoute.addChildren([
+  rootIndexRoute,
   indexRoute,
   infoRoute.addChildren([infoDetailsRoute])
 ])

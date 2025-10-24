@@ -1,9 +1,8 @@
-import { Box, Card, CardContent, Typography, Button } from '@mui/material'
-import { Link, Outlet } from '@tanstack/react-router'
+import { Box } from '@mui/material'
 import Plot from 'react-plotly.js'
 import rankingPlotData from '../data/ranking-plot-all.json'
 
-export function Info() {
+export function Uninominal() {
   return (
       <Box sx={{ height: '600px', width:1 }}>
                 <Plot
