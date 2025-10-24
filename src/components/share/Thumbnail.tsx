@@ -18,20 +18,26 @@ export const Thumbnail: FC<PropsWithChildren<ThumbnailProps>> = ({ sx, originalS
 
     const isFullHeight = containerWidth / containerHeight < originalSize.width / originalSize.height;
     const scale = !isFullHeight ? containerHeight / originalSize.height : containerWidth / originalSize.width;
-
     return (
         <Box ref={ref} sx={{
             ...sx,
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
         }}>
             <Box sx={{
-                transform: `scale(${scale})`,
-                width: originalSize.width,
-                height: originalSize.height,
+                width: originalSize.width * scale,
+                height: originalSize.height * scale,
             }}>
-                {children}
+                <Box sx={{
+                    transform: `scale(${scale})`,
+                    width: originalSize.width,
+                    height: originalSize.height,
+                    transformOrigin: 'top left',
+                }}>
+                    {children}
+                </Box>
+                
             </Box>
         </Box>
     )
