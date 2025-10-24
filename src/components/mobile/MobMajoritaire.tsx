@@ -1,13 +1,45 @@
-import { Box, Typography } from "@mui/material"
-import { JmRankingChart } from "../chart/JmRankingChart"
+import { alpha, Box, Card, CardContent, Typography, useTheme } from "@mui/material";
+import { JmRankingChart } from "../chart/JmRankingChart";
+import { Thumbnail } from "../share/Thumbnail";
 
 export const MobMajoritaire: React.FC = () => {
+    const theme = useTheme();
+    const thumbnailSx = { height: "200px", width: 1, bgcolor: alpha(theme.palette.info.main, 0.07) };
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', p: 6 }}>
-            <Box sx={{ width: "100%", height: "600px" }}>
-                <JmRankingChart />
-            </Box>
-
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', gap: 2, p: 2 }}>
+            <Card elevation={2} sx={{ width: 1 }}>
+                <Thumbnail sx={thumbnailSx}>
+                    <JmRankingChart />
+                </Thumbnail>
+                <CardContent>
+                    <Typography variant="h6">Evolution du Classement</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        Evolution du classement des candidats sondage après sondage
+                    </Typography>
+                </CardContent>
+            </Card>
+            <Card elevation={2} sx={{ width: 1 }}>
+                <Thumbnail sx={thumbnailSx}>
+                    <JmRankingChart />
+                </Thumbnail>
+                <CardContent>
+                    <Typography variant="h6">Profile de mérite - sondage unique</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        Comparaison du profile de mérite des différents candidats pour un sondage donné
+                    </Typography>
+                </CardContent>
+            </Card>
+            <Card elevation={2} sx={{ width: 1 }}>
+                <Thumbnail sx={thumbnailSx}>
+                    <JmRankingChart />
+                </Thumbnail>
+                <CardContent>
+                    <Typography variant="h6">Grille de profile de mérite</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        Evolution du profile de mérite d'un candidat au cours du temps
+                    </Typography>
+                </CardContent>
+            </Card>
         </Box>
     )
 }
