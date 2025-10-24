@@ -13,19 +13,19 @@ export const MobCommand: FC = () => {
           label="Uninominal"
           icon={<ScrutinUninominal />}
           component={Link}
-          to="/"
+          to="/uninominal"
         />
         <BottomNavigationAction
           label="Approbation"
           icon={<VoteApprobation />}
           component={Link}
-          to="/about"
+          to="/approbation"
         />
         <BottomNavigationAction
           label="J. Majoritaire"
           icon={<JugMaj />}
           component={Link}
-          to="/info"
+          to="/majoritaire"
         />
       </BottomNavigation>
     </Paper>

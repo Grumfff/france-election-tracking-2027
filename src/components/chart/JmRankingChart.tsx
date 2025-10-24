@@ -2,7 +2,6 @@ import { Box } from '@mui/material'
 import type { EChartsOption } from 'echarts';
 import React from 'react';
 import echartsRanking from '../../data/echarts_ranking.json'
-import { useIsMobile } from '../../hooks/useIsMobile'
 import Chart from '../Chart';
 
 const rankingChartOption: EChartsOption = {
@@ -23,15 +22,18 @@ const rankingChartOption: EChartsOption = {
   }
 
 export const JmRankingChart : React.FC = () => {
-    // const isMobile = useIsMobile()
-    const isMobile = true; 
-
     return (
-        <Box sx={{ width: 1, height: 1,
-            transform: isMobile ? 'scale(0.5)' : 'scale(1)',
-            transformOrigin: 'top left'
-        }}>
+        <Box sx={{ width: 1, height: 1,}}>
           <Chart option={rankingChartOption} />
         </Box>
     )
 }
+
+  // "title": {
+  //   "text": "Classement des candidats à l'élection présidentielle 2027",
+  //   "subtext": "source: IPSOS, commanditaire: La Tribune Dimanche",
+  //   "left": "center",
+  //   "textStyle": {
+  //     "fontWeight": "bold"
+  //   }
+  // },

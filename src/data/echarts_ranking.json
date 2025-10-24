@@ -1,12 +1,5 @@
 {
-  "title": {
-    "text": "Classement des candidats à l'élection présidentielle 2027",
-    "subtext": "source: IPSOS, commanditaire: La Tribune Dimanche",
-    "left": "center",
-    "textStyle": {
-      "fontWeight": "bold"
-    }
-  },
+
   "tooltip": {
     "trigger": "item"
   },
