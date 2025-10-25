@@ -1,6 +1,6 @@
-import { Alert, Box, Card, CardContent, Typography, alpha, useTheme } from "@mui/material"
-import { JmRankingChart } from "../chart/JmRankingChart"
-import { Thumbnail } from "../share/Thumbnail"
+import { Alert, Box, Card, CardContent, Typography, alpha, useTheme } from "@mui/material";
+import { JmRankingChart } from "../chart/echart/JmRankingChart";
+import { Thumbnail } from "../share/Thumbnail";
 
 export const WebMajoritaire: React.FC = () => {
     const theme = useTheme();

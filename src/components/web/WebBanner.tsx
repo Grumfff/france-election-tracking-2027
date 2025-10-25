@@ -11,6 +11,7 @@ export const WebBanner : FC = () => {
       case '/majoritaire': return 0;
       case '/approbation': return 1;
       case '/uninominal': return 2;
+      case '/test-plotly': return 3;
       default: return 0;
     }
   };
@@ -52,7 +53,14 @@ export const WebBanner : FC = () => {
           to="/uninominal"
           sx={{ textTransform: 'none' }}
         />
+        <Tab
+          label="Test Plotly"
+          component={Link}
+          to="/test-plotly"
+          sx={{ textTransform: 'none' }}
+        />
       </Tabs>
+      
     </AppBar>
   )
 }

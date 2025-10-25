@@ -6,8 +6,8 @@ import {
 } from '@tanstack/react-router'
 import { App } from './components/App'
 import { Majoritaire } from './components/Majoritaire'
-import { Uninominal } from './components/Uninominal'
-import { InfoDetails } from './components/InfoDetails'
+import { Building } from './components/Building'
+import { TestPlotly } from './components/chart/plotly/TestPlotly'
 
 const rootRoute = createRootRoute({
   component: App,
@@ -22,28 +22,37 @@ const rootIndexRoute = createRoute({
   },
 })
 
-const indexRoute = createRoute({
+const majoritaireRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/majoritaire',
   component: Majoritaire,
 })
 
-const infoRoute = createRoute({
+const uninominalRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/uninominal',
-  component: Uninominal,
+  component: Building
 })
 
-const infoDetailsRoute = createRoute({
-  getParentRoute: () => infoRoute,
-  path: '/details',
-  component: InfoDetails,
+const approbationRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/approbation',
+  component: Building,
+})
+
+const testPlotly = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/test-plotly',
+  component: TestPlotly,
 })
 
 const routeTree = rootRoute.addChildren([
   rootIndexRoute,
-  indexRoute,
-  infoRoute.addChildren([infoDetailsRoute])
+  majoritaireRoute,
+  uninominalRoute,
+  approbationRoute,
+  testPlotly,
+  // infoRoute.addChildren([infoDetailsRoute])
 ])
 
 export const router = createRouter({ routeTree })

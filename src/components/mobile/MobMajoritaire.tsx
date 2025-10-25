@@ -1,5 +1,5 @@
 import { alpha, Box, Card, CardContent, Typography, useTheme } from "@mui/material";
-import { JmRankingChart } from "../chart/JmRankingChart";
+import { JmRankingChart } from "../chart/echart/JmRankingChart";
 import { Thumbnail } from "../share/Thumbnail";
 
 export const MobMajoritaire: React.FC = () => {
