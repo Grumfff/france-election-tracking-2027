@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import type { EChartsOption } from 'echarts';
 import React from 'react';
 import echartsRanking from '../../data/echarts_ranking.json'
-import Chart from '../Chart';
+import Chart from '../share/Chart';
 
 const rankingChartOption: EChartsOption = {
     ...(echartsRanking as EChartsOption),
