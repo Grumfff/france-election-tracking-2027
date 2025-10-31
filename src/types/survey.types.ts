@@ -25,19 +25,16 @@ export interface PollResult {
 export interface Poll {
   id: string;
   poll_type_id: string;
-  organization: string;
-  client: string;
-  field_dates: string[];
-  sample_size: number;
-  population: string;
+  field_dates: string[]
   results: Record<string, PollResult>;
 }
 
 export interface PollType {
   id: string;
   organization: string;
-  grades: string[];
-  [key: string]: unknown;
+  num_grades: number;
+  question: string;
+  grades: Grade[];
 }
 
 export interface Survey {
@@ -45,4 +42,9 @@ export interface Survey {
   poll_types: Record<string, PollType>;
   candidates: Record<string, Candidate>;
   polls: Poll[];
+}
+
+export interface Grade {
+  rank: number;
+  label: string;
 }
