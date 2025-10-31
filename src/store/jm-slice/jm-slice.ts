@@ -1,8 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getLatestSurveyData } from "../../services/MjServices";
+import type { Survey } from "../../types/survey.types";
 
-const mjInitialState = {
-    jmData: {},
+interface MjState {
+    jmData: Survey | null;
+}
+
+const mjInitialState: MjState = {
+    jmData: null,
 };
 
 const mjReducers = {
@@ -18,12 +23,12 @@ const mjSlice = createSlice({
 });
 
 function handleLoadJmData(builder: any) {
-    builder.addCase(loadMajorityJugmentData.fulfilled, (state: { jmData: any; }, action: { payload: any; }) => {
+    builder.addCase(loadMajorityJugmentData.fulfilled, (state: MjState, action: { payload: Survey }) => {
         state.jmData = action.payload;
     });
 }
 
-export const loadMajorityJugmentData = createAsyncThunk<Record<string, unknown>, void>('majority-jugment/load',
+export const loadMajorityJugmentData = createAsyncThunk<Survey, void>('majority-jugment/load',
     async () => {
         return await getLatestSurveyData();
     }

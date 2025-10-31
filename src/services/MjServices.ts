@@ -1,3 +1,5 @@
+import type { Survey } from '../types/survey.types';
+
 // async function getLatestSurveyData() {
 //   // Utiliser l'API GitHub pour récupérer la dernière release
 //   const releaseResponse = await fetch(
@@ -22,10 +24,8 @@
 //   return await jsonResponse.json();
 // }
 
-export { getLatestSurveyData };
-
 //Note: Si vous êtes bloqué par le rate limit GitHub, utilisez un proxy CORS:
-async function getLatestSurveyData() {
+export async function getLatestSurveyData(): Promise<Survey> {
   const proxyUrl = 'https://corsproxy.io/?';
   const jsonUrl = 'https://github.com/MieuxVoter/mj-tracker-2027/releases/download/latest-data/latest_survey_mj_compact.json';
   const jsonResponse = await fetch(proxyUrl + encodeURIComponent(jsonUrl));
