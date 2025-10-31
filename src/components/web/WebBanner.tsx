@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { Link, useLocation } from '@tanstack/react-router'
-import { AppBar, Box, Toolbar, Typography, Tabs, Tab, Button } from "@mui/material"
+import { Box, Toolbar, Typography, Tabs, Tab, Button, AppBar } from "@mui/material"
 import logoSvg from '../../assets/logo.svg'
 
 export const WebBanner : FC = () => {
