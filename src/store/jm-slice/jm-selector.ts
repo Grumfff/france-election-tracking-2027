@@ -1,70 +1,54 @@
-import type { RootState } from '../store';
+import { createSelector } from '@reduxjs/toolkit';
 import type { CandidateRankings, EChartsSeriesData } from '../../types/survey.types';
+import type { RootState } from '../store';
 
-export const selectCandidateRankings = (state: RootState): CandidateRankings | null => {
-  const jmData = state.majorityJudgment.jmData;
+const selectJmData = (state: RootState) => state.majorityJudgment.jmData;
 
-  if (!jmData) {
-    return null;
-  }
-  const rankings: CandidateRankings = {};
+export const selectCandidateRankings = createSelector(
+    [selectJmData],
+    (jmData): CandidateRankings | null => {
+        if (!jmData) {
+            return null;
+        }
 
-  // Parcourir tous les polls
-  for (const poll of jmData.polls) {
-    // Extraire la premi�re date du poll
-    const date = poll.field_dates[0];
+        const rankings = jmData.polls.reduce<CandidateRankings>((acc, poll) => {
+            const date = poll.field_dates[0];
+            if (!date) return acc;
 
-    if (!date) continue;
+            return Object.entries(poll.results).reduce((innerAcc, [candidateId, result]) => {
+                const updatedRanks = [
+                    ...(innerAcc[candidateId] || []),
+                    { date, rank: result.rank }
+                ].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-    // Pour chaque candidat dans les r�sultats du poll
-    for (const [candidateId, result] of Object.entries(poll.results)) {
-      // Initialiser le tableau pour ce candidat si n�cessaire
-      if (!rankings[candidateId]) {
-        rankings[candidateId] = [];
-      }
+                return {
+                    ...innerAcc,
+                    [candidateId]: updatedRanks
+                };
+            }, acc);
+        }, {});
 
-      // Ajouter le DateRank
-      rankings[candidateId].push({
-        date,
-        rank: result.rank
-      });
+        return rankings;
     }
-  }
+);
 
-  // Trier les tableaux par date pour chaque candidat
-  for (const candidateId in rankings) {
-    rankings[candidateId].sort((a, b) =>
-      new Date(a.date).getTime() - new Date(b.date).getTime()
-    );
-  }
+export const selectCandidateRankingsForECharts = createSelector(
+    [selectJmData, selectCandidateRankings],
+    (jmData, rankings): EChartsSeriesData[] | null => {
+        if (!jmData || !rankings) {
+            return null;
+        }
 
-  return rankings;
-};
-
-export const selectCandidateRankingsForECharts = (state: RootState): EChartsSeriesData[] | null => {
-  const jmData = state.majorityJudgment.jmData;
-  const rankings = selectCandidateRankings(state);
-
-  if (!jmData || !rankings) {
-    return null;
-  }
-
-  const seriesData: EChartsSeriesData[] = [];
-
-  // Transformer le Record en tableau de séries ECharts
-  for (const [candidateId, dateRanks] of Object.entries(rankings)) {
-    const candidate = jmData.candidates[candidateId];
-
-    if (!candidate) continue;
-
-    // Transformer DateRank[] en tuples [date, rank][]
-    const data: [string, number][] = dateRanks.map(dr => [dr.date, dr.rank]);
-
-    seriesData.push({
-      name: candidate.name,
-      data
-    });
-  }
-
-  return seriesData;
-};
+        return Object.entries(rankings)
+            .map(([candidateId, dateRanks]) => {
+                const candidate = jmData.candidates[candidateId];
+                if (!candidate) return null;
+                const data: [string, number][] = dateRanks.map(dr => [dr.date, dr.rank]);
+                return {
+                    name: candidate.name,
+                    data
+                };
+            })
+            .filter((item): item is EChartsSeriesData => item !== null);
+    }
+);
