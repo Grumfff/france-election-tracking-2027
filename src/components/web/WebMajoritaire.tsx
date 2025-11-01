@@ -2,7 +2,7 @@ import { Alert, Box } from "@mui/material";
 import { useNavigate } from "@tanstack/react-router";
 import { MjMeritChart } from "../chart/echart/MjMeritChart";
 import { MjTimeMeritChart } from "../chart/echart/MjTimeMerit";
-import { MjRankingChart } from "../chart/echart/ranking-chart/MjRankingChart";
+import { MjRankingChart } from "../chart/echart/mj-ranking-chart/MjRankingChart";
 import { ChartCard } from "../share/ChartCard";
 
 export const WebMajoritaire: React.FC = () => {
