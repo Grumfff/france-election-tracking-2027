@@ -1,7 +1,7 @@
 import { Alert, Box } from "@mui/material";
 import { useNavigate } from "@tanstack/react-router";
-import { JmMeritChart } from "../chart/echart/JmMeritChart";
-import { JmTimeMeritChart } from "../chart/echart/JmTimeMerit";
+import { MjMeritChart } from "../chart/echart/MjMeritChart";
+import { MjTimeMeritChart } from "../chart/echart/MjTimeMerit";
 import { MjRankingChart } from "../chart/echart/ranking-chart/MjRankingChart";
 import { ChartCard } from "../share/ChartCard";
 
@@ -19,14 +19,14 @@ export const WebMajoritaire: React.FC = () => {
                     <ChartCard
                         title="Evolution du Classement"
                         description="Evolution du classement des candidats sondage après sondage"
-                        chart={<MjRankingChart />}
+                        chart={<MjRankingChart isThumbnail />}
                         onClick={() => navigate({ to: '/majoritaire/evolution-classement' })}
                         sx={{ flex: 1 }}
                     />
                     <ChartCard
                         title="Profile de mérite - sondage unique"
                         description="Comparaison du profile de mérite des différents candidats pour un sondage donné"
-                        chart={<JmMeritChart />}
+                        chart={<MjMeritChart />}
                         onClick={() => navigate({ to: '/majoritaire/profile-merite-sondage' })}
                         sx={{ flex: 1 }}
                     />
@@ -35,7 +35,7 @@ export const WebMajoritaire: React.FC = () => {
                     <ChartCard
                         title="Grille de profile de mérite"
                         description="Evolution du profile de mérite d'un candidat au cours du temps"
-                        chart={<JmTimeMeritChart />}
+                        chart={<MjTimeMeritChart />}
                         onClick={() => navigate({ to: '/majoritaire/grille-profile-merite' })}
                         sx={{ flex: 1, maxWidth: 'calc(50% - 4px)' }}
                     />

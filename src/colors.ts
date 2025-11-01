@@ -17,6 +17,7 @@ const candidateColor: Record<string, string> = {
     "Bernard Cazeneuve": "#b339a4",
     "Bruno Le Maire": "#0095eb",
     "Bruno Retailleau": "#0242e3",
+    "Clémentine Autain": "#de001e",
     "David Lisnard": "#0242e3",
     "Dominique de Villepin": "#0242e3",
     "Edouard Philippe": "#0095eb",

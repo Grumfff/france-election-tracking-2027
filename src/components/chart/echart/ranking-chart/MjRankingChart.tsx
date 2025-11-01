@@ -1,72 +1,35 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import type { EChartsOption } from 'echarts';
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { graphColor } from '../../../../colors';
-import { selectCandidateRankingsForECharts, selectGradRankLimitsForEchart, } from '../../../../store/jm-slice/jm-selector';
 import Chart from '../../../share/Chart';
 import { rankingChartConfig } from './rankingChartConfig';
+import { useCandidateRankingSeries } from './useCandidateRankingSeries';
+import { useGradeAreaSeries } from './useGradeAreaSeries';
 
-export const MjRankingChart: React.FC = () => {
+interface MjRankingChartProps {
+    isThumbnail?: boolean;
+}
 
-  const candidateRankings = useSelector(selectCandidateRankingsForECharts);
-  // Ajouter type: 'line' et endLabel à chaque série
-  const candidateRankingsSeries = candidateRankings?.map(ranking => ({
-    name: ranking.name,
-    data: ranking.data,
-    type: 'line' as const,
-    lineStyle: {
-      color: graphColor.candidateColor[ranking.name],
-      width: 1.5
-    },
-    itemStyle: {
-      color: graphColor.candidateColor[ranking.name]
-    },
-    endLabel: {
-      show: true,
-      formatter: (params: any) => {
-        const rank = Math.round(params.value[1]);
-        const rankText = rank === 1 ? '1er ' : `${rank}e`.padEnd(4, ' ');
-        return `${rankText} ${params.seriesName}`;
-      },
-      distance: 15,
-      color: graphColor.candidateColor[ranking.name],
+export const MjRankingChart: React.FC<MjRankingChartProps> = ({ isThumbnail = false }) => {
 
-    }
-  })) || [];
+  const candidateRankingsSeries = useCandidateRankingSeries();
+  const gradeAreaSeries = useGradeAreaSeries();
 
-  const gradRankLimits = useSelector(selectGradRankLimitsForEchart);
-
-  const gradAreaSeries = gradRankLimits?.map((gradeSeries: any) => {
-    return {
-      name: gradeSeries.name,
-      type: 'line' as const,
-      data: gradeSeries.data,
-      stack: gradeSeries.name,
-      areaStyle: { color: graphColor.rankingFiveGradeScale[gradeSeries.gradeRank - 1] },
-      itemStyle: { color: graphColor.rankingFiveGradeScale[gradeSeries.gradeRank - 1] },
-      lineStyle: {
-        width: 0,
-        color: "transparent"
-      },
-      symbol: "none",
-      smooth: false,
-    }
-  }) || [];
-
-  const series = [...gradAreaSeries, ...candidateRankingsSeries,];
+  const series = [...gradeAreaSeries, ...candidateRankingsSeries,];
 
   const rankingChartOption: EChartsOption = {
     ...rankingChartConfig,
+    legend: isThumbnail ? { show: false } : rankingChartConfig.legend,
     series
   }
 
-  if (!candidateRankings) {
+  if (!candidateRankingsSeries.length) {
     return <Box sx={{ p: 2 }}>Chargement des données...</Box>;
   }
 
   return (
     <Box sx={{ width: 1, height: 1 }}>
+      { !isThumbnail && <Typography variant="h6">Évolution du classement des candidats</Typography>}
       <Chart option={rankingChartOption} />
     </Box>
   )

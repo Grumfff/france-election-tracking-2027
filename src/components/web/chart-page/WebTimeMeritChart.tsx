@@ -1,11 +1,11 @@
 import type { FC } from "react"
-import { JmTimeMeritChart } from "../../chart/echart/JmTimeMerit"
+import { MjTimeMeritChart } from "../../chart/echart/MjTimeMerit"
 import { WebJmChart } from "./WebJmChart"
 
 export const WebTimeMeritChart: FC = () => {
     return (
         <WebJmChart>
-            <JmTimeMeritChart />
+            <MjTimeMeritChart />
         </WebJmChart>
     )
 }

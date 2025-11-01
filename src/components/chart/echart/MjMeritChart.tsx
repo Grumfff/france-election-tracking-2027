@@ -1,9 +1,13 @@
-import { Box, useTheme } from "@mui/material"
-import Chart from "../../share/Chart"
-import echartsMerit from '../../../data/echarts_ipsos-2015-1.json';
+import { Box, useTheme } from "@mui/material";
 import type { EChartsOption } from "echarts";
+import echartsMerit from '../../../data/echarts_ipsos-2015-1.json';
+import Chart from "../../share/Chart";
 
-export const JmMeritChart: React.FC = () => {
+interface MjMeritChartProps {
+  isThumbnail?: boolean;
+}
+
+export const MjMeritChart: React.FC<MjMeritChartProps> = ({ isThumbnail = false }) => {
   const theme = useTheme();
 
   const meritChartOption: EChartsOption = {

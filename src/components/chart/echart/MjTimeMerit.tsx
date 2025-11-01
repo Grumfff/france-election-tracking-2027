@@ -7,7 +7,7 @@ const timeMeritChartOption: EChartsOption = {
     ...(timeMerit as EChartsOption),
 }
 
-export const JmTimeMeritChart: React.FC = () => {
+export const MjTimeMeritChart: React.FC = () => {
     return (
         <Box sx={{ width: 1, height: 1, }}>
             <Chart option={timeMeritChartOption} />
