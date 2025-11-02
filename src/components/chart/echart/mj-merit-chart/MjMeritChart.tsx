@@ -2,9 +2,10 @@ import { Box, useTheme } from "@mui/material";
 import type { EChartsOption } from "echarts";
 import { useSelector } from "react-redux";
 import echartsMerit from '../../../../data/echarts_ipsos-2015-1.json';
-import { selectCandidateDistributionByPollIndex } from "../../../../store/jm-slice/jm-selector";
+import { selectCandidateDistributionByPollIndex, selectMeritChartSeriesByPollIndexForECharts } from "../../../../store/jm-slice/jm-selector";
 import type { RootState } from "../../../../store/store";
 import Chart from "../../../share/Chart";
+import { mjMeritChartConfig } from "./meritChatConfig";
 
 interface MjMeritChartProps {
   isThumbnail?: boolean;
@@ -15,6 +16,7 @@ export const MjMeritChart: React.FC<MjMeritChartProps> = ({
 }) => {
   const theme = useTheme();
   const candidateDistributions = useSelector((state: RootState) => selectCandidateDistributionByPollIndex(state, 1));
+  const meritChartSeries = useSelector((state: RootState) => selectMeritChartSeriesByPollIndexForECharts(state, 1));
 
   const medianLine : EChartsOption = {
     series: (echartsMerit.series || []).map((serie: any, index: number) => {
@@ -47,7 +49,7 @@ export const MjMeritChart: React.FC<MjMeritChartProps> = ({
 
   const meritChartOption: EChartsOption = {
     ...(echartsMerit as EChartsOption),
-    // ...mjMeritChartConfig,
+    ...mjMeritChartConfig,
     ...medianLine,
   }
 
@@ -55,7 +57,7 @@ export const MjMeritChart: React.FC<MjMeritChartProps> = ({
     <Box sx={{ width: 1, height: 1, }}>
       <Chart option={meritChartOption} />
       <Box sx={{ p: 2, fontSize: '0.75rem' }}>
-        <pre>{JSON.stringify(candidateDistributions, null, 2)}</pre>
+        <pre>{JSON.stringify(meritChartSeries, null, 2)}</pre>
       </Box>
     </Box>
   )

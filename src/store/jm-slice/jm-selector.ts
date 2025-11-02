@@ -167,5 +167,21 @@ export const selectCandidateDistributionByPollIndex = createSelector(
     }
 );
 
+export const selectMeritChartSeriesByPollIndexForECharts = createSelector(
+    [selectCandidateDistributionByPollIndex, selectJmData],
+    (candidateDistributions, jmData) => {
+        if (!jmData || candidateDistributions.length === 0) {
+            return null;
+        }
+
+        const grades = jmData.poll_types.pt1.grades;
+
+        return grades.map((grade) => ({
+            name: grade.label,
+            data: candidateDistributions.map(candidate => candidate.distribution[grade.rank - 1])
+        }));
+    }
+);
+
 
 
