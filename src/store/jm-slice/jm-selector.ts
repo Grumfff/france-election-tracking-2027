@@ -4,10 +4,9 @@ import type { RootState } from '../store';
 
 const selectJmData = (state: RootState) => state.majorityJudgment.jmData;
 
-// Sélecteur pour les dates de pt1 (deuxième date)
 export const selectPt1Dates = createSelector(
     [selectJmData],
-    (jmData): string[] => {
+    (jmData): Array<{ date: string; index: number }> => {
         if (!jmData) {
             return [];
         }
@@ -16,7 +15,18 @@ export const selectPt1Dates = createSelector(
             .filter(poll => poll.poll_type_id === 'pt1')
             .map(poll => poll.field_dates[1])
             .filter((date): date is string => date !== undefined)
-            .sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+            .sort((a, b) => new Date(a).getTime() - new Date(b).getTime())
+            .map((date, index) => ({ date, index }));
+    }
+);
+
+export const selectLastPt1Date = createSelector(
+    [selectPt1Dates],
+    (dates): string | null => {
+        if (dates.length === 0) {
+            return null;
+        }
+        return dates[dates.length - 1].date;
     }
 );
 
@@ -64,11 +74,11 @@ export const selectGradRankLimitsForEchart = createSelector(
             return null;
         }
         const result = jmData.poll_types.pt1.grades.map((grade) => {
-            const gradeRankRange = dates.map(date => {
+            const gradeRankRange = dates.map(dateObj => {
                 return [
-                    date,
-                    gradRankLimits[date]?.[grade.rank - 1] ?? 0,
-                    gradRankLimits[date]?.[grade.rank] ?? 0
+                    dateObj.date,
+                    gradRankLimits[dateObj.date]?.[grade.rank - 1] ?? 0,
+                    gradRankLimits[dateObj.date]?.[grade.rank] ?? 0
                 ] as [string, number, number]
             })
             return {
@@ -132,5 +142,30 @@ export const selectCandidateRankingsForECharts = createSelector(
             .filter((item): item is EChartsSeriesData => item !== null);
     }
 );
+
+export const selectCandidateDistributionByPollIndex = createSelector(
+    [selectJmData, (_state: RootState, pollIndex: number) => pollIndex],
+    (jmData, pollIndex) => {
+        const pollResult = jmData?.polls[pollIndex].results;
+        if (!jmData || !pollResult) {
+            return [];
+        }
+
+        return Object.entries(pollResult)
+            .map(([candidateId, result]) => {
+                const candidate = jmData.candidates[candidateId];
+                if (!candidate) return null;
+                return {
+                    key: candidateId,
+                    name: candidate.name,
+                    distribution: result.distribution,
+                    rank: result.rank
+                };
+            })
+            .filter((item): item is { key: string; name: string; distribution: number[]; rank: number } => item !== null)
+            .sort((a, b) => a.rank - b.rank);
+    }
+);
+
 
 

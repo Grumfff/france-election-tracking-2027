@@ -1,19 +1,23 @@
 import { Box, Typography } from '@mui/material';
 import type { EChartsOption } from 'echarts';
 import React from 'react';
-import Chart from '../../../share/Chart';
+import { useSelector } from 'react-redux';
+import { selectLastPt1Date } from '../../../../store/jm-slice/jm-selector';
+import { BorderLayout } from '../../../share/layout/BorderLayout';
 import { rankingChartConfig } from './rankingChartConfig';
 import { useCandidateRankingSeries } from './useCandidateRankingSeries';
 import { useGradeAreaSeries } from './useGradeAreaSeries';
+import Chart from '../../../share/Chart';
 
 interface MjRankingChartProps {
-    isThumbnail?: boolean;
+  isThumbnail?: boolean;
 }
 
 export const MjRankingChart: React.FC<MjRankingChartProps> = ({ isThumbnail = false }) => {
 
   const candidateRankingsSeries = useCandidateRankingSeries();
   const gradeAreaSeries = useGradeAreaSeries();
+  const lastPollDate = useSelector(selectLastPt1Date);
 
   const series = [...gradeAreaSeries, ...candidateRankingsSeries,];
 
@@ -29,8 +33,24 @@ export const MjRankingChart: React.FC<MjRankingChartProps> = ({ isThumbnail = fa
 
   return (
     <Box sx={{ width: 1, height: 1 }}>
-      { !isThumbnail && <Typography variant="h6">Évolution du classement des candidats</Typography>}
-      <Chart option={rankingChartOption} />
+      <BorderLayout
+        north={
+          <>
+            {!isThumbnail &&
+              <Box>
+                <Typography variant="h5">Classement des candidats à l'éléction présidentiel 2027</Typography>
+                <Typography variant="subtitle1">
+                  source : IPSOS, commanditaire La Tribune Dimanche, dernier sondage: {lastPollDate ? new Date(lastPollDate).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) : 'N/A'}
+                </Typography>
+                <Typography variant="subtitle1">
+                  scrutin : Jugement majoritaire 
+                </Typography>
+              </Box>
+            }
+          </>
+        }
+        center={<Chart option={rankingChartOption} />}
+      />
     </Box>
   )
 }

@@ -25,7 +25,7 @@ export const rankingChartConfig = {
         left: "3%",
         right: 145,
         bottom: 50,
-        top: 60,
+        top: 50,
         containLabel: true
     },
     xAxis: {

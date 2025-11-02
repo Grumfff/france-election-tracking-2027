@@ -11,7 +11,7 @@ interface WebJmChartProps {
 export const WebJmChart: FC<PropsWithChildren<WebJmChartProps>> = ({children}) => {
     const navigate = useNavigate()
     return (
-        <BorderLayout sx={{ width: '100%', height: '600px', p: 4 }}
+        <BorderLayout sx={{ width: 1, height: 1, p: 4 }}
             center={children}
             south={
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 2 }}>
