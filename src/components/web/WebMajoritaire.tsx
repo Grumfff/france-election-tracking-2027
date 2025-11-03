@@ -26,7 +26,7 @@ export const WebMajoritaire: React.FC = () => {
                     <ChartCard
                         title="Profile de mérite - sondage unique"
                         description="Comparaison du profile de mérite des différents candidats pour un sondage donné"
-                        chart={<MjMeritChart />}
+                        chart={<MjMeritChart isThumbnail/>}
                         onClick={() => navigate({ to: '/majoritaire/profile-merite-sondage' })}
                         sx={{ flex: 1 }}
                     />

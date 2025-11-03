@@ -30,8 +30,8 @@ export const mjMeritChartConfig: EChartsOption = {
   grid: {
     left: '15%',
     right: '4%',
-    bottom: '15%',
-    top: '15%',
+    bottom: '8%',
+    top: '8%',
     containLabel: true
   },
   xAxis: {
