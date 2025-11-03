@@ -1,8 +1,8 @@
-import { Box, useTheme } from "@mui/material";
+import { Box, FormControl, InputLabel, MenuItem, Select, useTheme } from "@mui/material";
 import type { EChartsOption } from "echarts";
+import { useState } from "react";
 import { useSelector } from "react-redux";
-// import echartsMerit from '../../../../data/echarts_ipsos-2015-1.json';
-import { selectCandidateDistributionByPollIndex, selectMeritChartSeriesByPollIndexForECharts } from "../../../../store/jm-slice/jm-selector";
+import { selectCandidateDistributionByPollIndex, selectMeritChartSeriesByPollIndexForECharts, selectPt1Dates } from "../../../../store/jm-slice/jm-selector";
 import type { RootState } from "../../../../store/store";
 import Chart from "../../../share/Chart";
 import { mjMeritChartConfig } from "./meritChatConfig";
@@ -16,8 +16,11 @@ export const MjMeritChart: React.FC<MjMeritChartProps> = ({
   isThumbnail = false
 }) => {
   const theme = useTheme();
-  const candidateDistributions = useSelector((state: RootState) => selectCandidateDistributionByPollIndex(state, 0));
-  const meritChartSeries = useSelector((state: RootState) => selectMeritChartSeriesByPollIndexForECharts(state, 0));
+  const [pollIndex, setPollIndex] = useState(0);
+
+  const pt1Dates = useSelector(selectPt1Dates);
+  const candidateDistributions = useSelector((state: RootState) => selectCandidateDistributionByPollIndex(state, pollIndex));
+  const meritChartSeries = useSelector((state: RootState) => selectMeritChartSeriesByPollIndexForECharts(state, pollIndex));
 
   const meritChartOption: EChartsOption = {
     ...mjMeritChartConfig,
@@ -64,8 +67,33 @@ export const MjMeritChart: React.FC<MjMeritChartProps> = ({
   }
 
   return (
-    <Box sx={{ width: 1, height: 1, }}>
-      <Chart option={meritChartOption} />
+    <Box sx={{ width: 1, height: 1, display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ p: 2 }}>
+        <FormControl sx={{ minWidth: 200 }}>
+          <InputLabel id="poll-select-label">Sondage</InputLabel>
+          <Select
+            labelId="poll-select-label"
+            id="poll-select"
+            value={pollIndex}
+            label="Sondage"
+            onChange={(e) => setPollIndex(e.target.value as number)}
+          >
+            {pt1Dates.map((dateObj) => (
+              <MenuItem key={dateObj.index} value={dateObj.index}>
+                {new Date(dateObj.date).toLocaleDateString('fr-FR', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric'
+                })}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+      <Box sx={{ flex: 1 }}>
+        <Chart option={meritChartOption} />
+      </Box>
     </Box>
+    
   )
 }

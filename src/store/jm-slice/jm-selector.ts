@@ -15,7 +15,7 @@ export const selectPt1Dates = createSelector(
             .filter(poll => poll.poll_type_id === 'pt1')
             .map(poll => poll.field_dates[1])
             .filter((date): date is string => date !== undefined)
-            .sort((a, b) => new Date(a).getTime() - new Date(b).getTime())
+            .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
             .map((date, index) => ({ date, index }));
     }
 );

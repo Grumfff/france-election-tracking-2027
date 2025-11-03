@@ -10,11 +10,14 @@ export const mjMeritChartConfig: EChartsOption = {
 //     }
 //   },
   tooltip: {
-    trigger: 'axis' as const,
-    axisPointer: {
-      type: 'shadow' as const
-    },
-    formatter: '{b}<br/>{a}: {c}%'
+    trigger: 'item' as const,
+    formatter: (params: any) => {
+      if (Array.isArray(params)) return '';
+      const candidateName = params.name;
+      const gradeName = params.seriesName;
+      const value = params.value;
+      return `${candidateName}<br/>${gradeName}: ${value}%`;
+    }
   },
   legend: {
     data: [
