@@ -47,6 +47,7 @@ export const mjMeritChartConfig: EChartsOption = {
   },
   yAxis: {
     type: 'category' as const,
+    inverse: true,
     axisLabel: {
       fontSize: 12
     }

@@ -171,7 +171,7 @@ export const selectMeritChartSeriesByPollIndexForECharts = createSelector(
     [selectCandidateDistributionByPollIndex, selectJmData],
     (candidateDistributions, jmData) => {
         if (!jmData || candidateDistributions.length === 0) {
-            return null;
+            return [];
         }
 
         const grades = jmData.poll_types.pt1.grades;

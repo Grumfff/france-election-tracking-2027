@@ -1,7 +1,7 @@
 import { Box, useTheme } from "@mui/material";
 import type { EChartsOption } from "echarts";
 import { useSelector } from "react-redux";
-import echartsMerit from '../../../../data/echarts_ipsos-2015-1.json';
+// import echartsMerit from '../../../../data/echarts_ipsos-2015-1.json';
 import { selectCandidateDistributionByPollIndex, selectMeritChartSeriesByPollIndexForECharts } from "../../../../store/jm-slice/jm-selector";
 import type { RootState } from "../../../../store/store";
 import Chart from "../../../share/Chart";
@@ -15,42 +15,51 @@ export const MjMeritChart: React.FC<MjMeritChartProps> = ({
   // isThumbnail = false
 }) => {
   const theme = useTheme();
-  const candidateDistributions = useSelector((state: RootState) => selectCandidateDistributionByPollIndex(state, 1));
-  const meritChartSeries = useSelector((state: RootState) => selectMeritChartSeriesByPollIndexForECharts(state, 1));
+  const candidateDistributions = useSelector((state: RootState) => selectCandidateDistributionByPollIndex(state, 0));
+  const meritChartSeries = useSelector((state: RootState) => selectMeritChartSeriesByPollIndexForECharts(state, 0));
 
-  const medianLine : EChartsOption = {
-    series: (echartsMerit.series || []).map((serie: any, index: number) => {
-      // Ajouter le markLine seulement à la première série
-      if (index === 0) {
-        return {
-          ...serie,
-          markLine: {
-            symbol: 'none',
-            data: [{
-              xAxis: 50,
-              lineStyle: {
-                color: theme.palette.primary.main,
-                width: 2,
-                type: 'solid'
-              },
-              label: {
-                show: true,
-                position: 'start',
-                formatter: '50%'
-              }
-            }],
-            silent: true,
-          }
-        }
-      }
-      return serie;
-    }) as any
-  }
+  // const medianLine : EChartsOption = {
+  //   series: (echartsMerit.series || []).map((serie: any, index: number) => {
+  //     // Ajouter le markLine seulement à la première série
+  //     if (index === 0) {
+  //       return {
+  //         ...serie,
+  //         markLine: {
+  //           symbol: 'none',
+  //           data: [{
+  //             xAxis: 50,
+  //             lineStyle: {
+  //               color: theme.palette.primary.main,
+  //               width: 2,
+  //               type: 'solid'
+  //             },
+  //             label: {
+  //               show: true,
+  //               position: 'start',
+  //               formatter: '50%'
+  //             }
+  //           }],
+  //           silent: true,
+  //         }
+  //       }
+  //     }
+  //     return serie;
+  //   }) as any
+  // }
 
   const meritChartOption: EChartsOption = {
-    ...(echartsMerit as EChartsOption),
+    // ...(echartsMerit as EChartsOption),
     ...mjMeritChartConfig,
-    ...medianLine,
+    yAxis: { ...mjMeritChartConfig.yAxis,
+      data: candidateDistributions?.map(cd => cd.name) || [],
+    },
+    series: meritChartSeries.map( serie => {
+        return {
+          type: 'bar',
+          stack: 'total',
+          ...serie,
+      }}),
+    // ...medianLine,
   }
 
   return (
