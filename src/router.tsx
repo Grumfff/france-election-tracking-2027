@@ -92,7 +92,6 @@ const hashHistory = createHashHistory()
 
 export const router = createRouter({
   routeTree,
-  basepath: '/france-election-tracking-2027',
   history: hashHistory
 })
 
