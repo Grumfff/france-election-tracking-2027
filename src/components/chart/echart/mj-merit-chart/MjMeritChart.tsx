@@ -86,7 +86,7 @@ export const MjMeritChart: React.FC<MjMeritChartProps> = ({
                   labelId="poll-select-label"
                   id="poll-select"
                   value={pollIndex}
-                  onChange={(e) => setPollIndex(e.target.value as number)}
+                  onChange={(e) => setPollIndex(e.target.value)}
                 >
                   {pt1Dates.map((dateObj) => (
                     <MenuItem key={dateObj.index} value={dateObj.index}>
@@ -107,9 +107,7 @@ export const MjMeritChart: React.FC<MjMeritChartProps> = ({
         </Box>
       }
     >
-
     </BorderLayout>
-
   </>
 
 
